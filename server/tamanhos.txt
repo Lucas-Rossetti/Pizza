@@ -1,0 +1,4 @@
+Pequena
+Média
+Grande
+Gigante
