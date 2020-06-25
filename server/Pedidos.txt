@@ -1,1 +1,14 @@
-
+Ip: 127.0.0.1
+Pizza 1
+Gigante
+Portuguesa
+Fanta-laranja
+Ip: 127.0.0.1
+Pizza 1
+Broto
+Pepperoni
+Coca-cola
+Pizza 2
+Broto
+Pepperoni
+Coca-cola

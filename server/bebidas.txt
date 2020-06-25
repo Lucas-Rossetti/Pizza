@@ -1,5 +1,6 @@
 Coca-cola
 Guaraná
-Fanta uva
-Fanta laranja
+Fanta-uva
+Fanta-laranja
 Água
+Cerveja

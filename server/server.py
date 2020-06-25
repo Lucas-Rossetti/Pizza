@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import socket
 
 # Define o host e a porta para rodar o servidor
@@ -14,29 +15,26 @@ while 1:
     s.bind((host, port))
     s.listen(10)
 
+    # Escreve que está rodando
+    print("Rodando...")
+
     # Aceitar a conexão
     con, add = s.accept()
 
-    # Receber dados
-    numero = con.recv(1024).decode()
-    tamanho = con.recv(1024).decode()
-    sabor = con.recv(1024).decode()
-    bebida = con.recv(1024).decode()
-    obs = con.recv(1024).decode()
+    # Escreve quem se conectou
+    print(add[0], "se conectou")
 
-    # Avisa que alguém mandou
-    print("Ip: " + add[0] + " conectou")
-
-    # Verifica se o pedido é válido
-    print(numero)
-    print(tamanho)
-    print(sabor)
-    print(bebida)
-    print(obs)
-
-    # Escreve o pedido
+    # Recebe e escreve dados
+    numero = int(con.recv(1024).decode())
+    print(numero, "Número")
     with open("Pedidos.txt", "a") as f:
-        f.write("Ip: " + add[0] + "\n" + tamanho + "\n" + sabor + "\n" + bebida + "\n" + obs + "\n\n")
-
+        f.write("Ip: " + add[0] + "\n")
+        for i in range(numero*4):
+            print("Chegou no loop")
+            data = con.recv(1024).decode()
+            print(data)
+            f.write(data)
+            con.send("recebido".encode('utf-8'))
+        print("Terminou o loop")
     # Fecha a conexão
     con.close()
